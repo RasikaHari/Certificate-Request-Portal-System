@@ -1,5 +1,6 @@
-D:\StudentManagementSystem\springapp\src\main\java\com\example\springapp\SpringappApplication.java
-D:\StudentManagementSystem\springapp\src\main\java\com\example\springapp\Model\Employee.java
-D:\StudentManagementSystem\springapp\src\main\java\com\example\springapp\Service\EmployeeService.java
-D:\StudentManagementSystem\springapp\src\main\java\com\example\springapp\Repository\EmployeeRepo.java
-D:\StudentManagementSystem\springapp\src\main\java\com\example\springapp\Controller\ApiController.java
+/home/coder/project/workspace/springapp/src/main/java/com/examly/springapp/repository/CertificateRequestRepository.java
+/home/coder/project/workspace/springapp/src/main/java/com/examly/springapp/service/CertificateService.java
+/home/coder/project/workspace/springapp/src/main/java/com/examly/springapp/controller/ApiController.java
+/home/coder/project/workspace/springapp/src/main/java/com/examly/springapp/configuration/CorsConfig.java
+/home/coder/project/workspace/springapp/src/main/java/com/examly/springapp/model/CertificateRequest.java
+/home/coder/project/workspace/springapp/src/main/java/com/examly/springapp/SpringappApplication.java
