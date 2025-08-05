@@ -1,6 +1,11 @@
 /home/coder/project/workspace/springapp/src/main/java/com/examly/springapp/repository/CertificateRequestRepository.java
+/home/coder/project/workspace/springapp/src/main/java/com/examly/springapp/model/UserRole.java
 /home/coder/project/workspace/springapp/src/main/java/com/examly/springapp/service/CertificateService.java
 /home/coder/project/workspace/springapp/src/main/java/com/examly/springapp/controller/ApiController.java
 /home/coder/project/workspace/springapp/src/main/java/com/examly/springapp/configuration/CorsConfig.java
+/home/coder/project/workspace/springapp/src/main/java/com/examly/springapp/model/User.java
 /home/coder/project/workspace/springapp/src/main/java/com/examly/springapp/model/CertificateRequest.java
 /home/coder/project/workspace/springapp/src/main/java/com/examly/springapp/SpringappApplication.java
+/home/coder/project/workspace/springapp/src/main/java/com/examly/springapp/service/UserService.java
+/home/coder/project/workspace/springapp/src/main/java/com/examly/springapp/repository/UserRepository.java
+/home/coder/project/workspace/springapp/src/main/java/com/examly/springapp/configuration/SecurityConfig.java
