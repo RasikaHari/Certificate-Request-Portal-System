@@ -2,6 +2,8 @@ package com.examly.springapp.model;
 
 import javax.persistence.*;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+
 import lombok.*;
 
 @Getter
@@ -20,5 +22,10 @@ public class CertificateRequest {
     private String completionDate;
 
     private String status="PENDING";
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "user_id", nullable = false)
+    @JsonBackReference
+    private User user;
 
 }

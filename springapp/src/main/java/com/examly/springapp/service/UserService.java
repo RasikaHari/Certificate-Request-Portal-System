@@ -54,4 +54,8 @@ public class UserService {
     {
         return userRepository.findByRole(role);
     }
+    public User saveUpdatedUser(User user) {
+    return userRepository.save(user);
+}
+
 }

@@ -40,5 +40,15 @@ public class CertificateService {
             return false;
         }
     }
+    public CertificateRequest updateRequestStatus(Long id, String status) {
+    Optional<CertificateRequest> optional = repository.findById(id);
+    if (optional.isPresent()) {
+        CertificateRequest request = optional.get();
+        request.setStatus(status);
+        return repository.save(request);
+    }
+    return null;
+}
+
 
 }

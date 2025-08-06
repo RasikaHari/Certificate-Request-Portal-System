@@ -1,6 +1,10 @@
 package com.examly.springapp.model;
 
+import java.util.List;
+
 import javax.persistence.*;
+
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 import lombok.*;
 
@@ -30,5 +34,9 @@ public class User {
 
     @Column(nullable=false,length=13)
     private String phoneNumber;
+
+    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, orphanRemoval = true)
+    @JsonManagedReference
+    private List<CertificateRequest> certificateRequests;
 
 }
