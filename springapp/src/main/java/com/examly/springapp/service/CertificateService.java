@@ -49,6 +49,10 @@ public class CertificateService {
     }
     return null;
 }
+public CertificateRequest getRequestById(Long id) {
+    return repository.findById(id).orElseThrow(() -> new RuntimeException("Request not found"));
+}
+
 
 
 }
