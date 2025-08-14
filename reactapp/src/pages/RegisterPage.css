@@ -1,0 +1,102 @@
+.register-wrapper {
+  display: flex;
+  flex-direction: row-reverse; 
+  height: 100vh;
+  font-family: "Poppins", sans-serif;
+}
+
+.register-left {
+  flex: 2;
+  padding: 60px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.register-logo {
+  font-size: 20px;
+  font-weight: 600;
+  color: #d17b93;
+}
+
+.register-welcome {
+  margin: 10px 0;
+  font-size: 14px;
+  color: #777;
+}
+
+.register-left h2 {
+  font-size: 32px;
+  margin-bottom: 20px;
+}
+
+.register-error {
+  color: red;
+  margin-bottom: 10px;
+}
+
+.register-form label {
+  font-size: 14px;
+  font-weight: 500;
+  margin-top: 15px;
+  display: block;
+}
+
+.register-form input {
+  width: 100%;
+  padding: 10px;
+  margin-top: 5px;
+  border-radius: 5px;
+  border: none;
+  background: #d9eaf5;
+}
+.register-form select {
+  width: 100%;
+  padding: 10px;
+  margin-top: 5px;
+  border-radius: 5px;
+  border: none;
+  background: #d9eaf5;
+}
+
+.register-btn {
+  background: #d17b93;
+  color: white;
+  border: none;
+  padding: 12px;
+  border-radius: 25px;
+  width: 100%;
+  margin-top: 20px;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.register-text {
+  text-align: center;
+  font-size: 12px;
+  margin-top: 20px;
+}
+
+.register-text a {
+  color: #d17b93;
+  text-decoration: none;
+}
+
+.register-right {
+  flex: 1;
+  background: #eaf5ff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.register-img {
+  width: 60%;
+  max-width: 350px;
+  transform: scale(1.2); /* zoom effect */
+  transition: transform 0.3s ease-in-out;
+}
+.register-img:hover {
+  transform: scale(1.05);
+}
+
