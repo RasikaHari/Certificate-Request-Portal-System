@@ -54,8 +54,14 @@ public class UserService {
     {
         return userRepository.findByRole(role);
     }
-    public User saveUpdatedUser(User user) {
-    return userRepository.save(user);
-}
+    public User saveUpdatedUser(User user) 
+    {
+        return userRepository.save(user);
+    }
+    public void deleteUserById(Long id) 
+    {
+        userRepository.deleteById(id); 
+    }
+
 
 }

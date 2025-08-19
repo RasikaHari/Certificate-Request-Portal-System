@@ -1,0 +1,135 @@
+.settings-page {
+  display: flex;
+  min-height: 90vh;
+  background: #f9fafb;
+  font-family: "Inter", sans-serif;
+  font-size: 14px; 
+  color: #1f2937;
+  position: relative;
+}
+
+
+.settings-sidebar {
+  width: 220px;
+  background: #fff;
+  padding: 20px;
+  border-right: 1px solid #e5e7eb;
+}
+
+.sidebar-title {
+  font-size: 1rem;
+  font-weight: 600;
+  margin-bottom: 16px;
+  color: #111827;
+}
+
+.settings-sidebar ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.settings-sidebar li {
+  padding: 10px 12px;
+  margin-bottom: 6px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 0.9rem;
+  color: #374151;
+  transition: all 0.2s ease-in-out;
+}
+
+.settings-sidebar li:hover {
+  background: #f3f4f6;
+}
+
+.settings-sidebar li.active {
+  background: #2563eb;
+  color: #fff;
+}
+
+
+.settings-content {
+  flex: 1;
+  padding: 30px;
+  background: #f9fafb;
+}
+
+.settings-content h3 {
+  font-size: 1.2rem; 
+  font-weight: 600;
+  margin-bottom: 16px;
+}
+
+.settings-message {
+  margin-bottom: 12px;
+  padding: 8px;
+  border-radius: 4px;
+  font-size: 0.85rem;
+  background: #e3f2fd;
+  color: #1565c0;
+}
+
+.settings-form label {
+  display: block;
+  margin-top: 12px;
+  margin-bottom: 4px;
+  font-weight: 500;
+  font-size: 0.85rem;
+  color: #374151;
+}
+
+.settings-form input {
+  width: 40%;
+  padding: 8px 12px;
+  font-size: 0.9rem;
+  border: 1px solid #d1d5db;
+  border-radius: 4px;
+  background: #fff;
+  color: #111827;
+  transition: border 0.2s, box-shadow 0.2s;
+}
+
+.settings-form input:focus {
+  outline: none;
+  border-color: #2563eb;
+  box-shadow: 0 0 0 1px rgba(37, 99, 235, 0.25);
+}
+
+
+.button-group {
+  display: flex;
+  gap: 8px;
+  margin-top: 20px;
+}
+
+
+.save-btn {
+  padding: 10px;
+  width: 190px; 
+  font-size: 0.9rem;
+  font-weight: 500;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.corner-imageee {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  width: 150px;
+  height: 150px;
+  z-index: 2;
+}
+
+
+.save-btn {
+  background: #046d37;
+  color: #fff;
+}
+
+.save-btn:hover {
+  background: #1d4ed8;
+}

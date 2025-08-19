@@ -1,5 +1,6 @@
 package com.examly.springapp.service;
 
+import java.time.LocalDateTime;
 import java.util.List;
 import java.util.Optional;
 
@@ -16,15 +17,36 @@ public class CertificateService {
     {
         this.repository=repository;
     }
-    public CertificateRequest addRequest(CertificateRequest request)
-    {
-        return repository.save(request);
-    }
+   
 
     public List<CertificateRequest>getAllRequests()
     {
         return repository.findAll();
     }
+    
+    public List<CertificateRequest> getRequestsByUserId(Long userId) {
+    return repository.findByUserId(userId);
+    }
+    public List<CertificateRequest> getDownloadedCertificatesByUserId(Long userId) {
+        return repository.findByUserIdAndStatus(userId, "APPROVED");
+    }
+
+    public CertificateRequest addRequest(CertificateRequest request) {
+   
+    if (request.getStatus() == null) {
+        request.setStatus("PENDING");
+    }
+
+  
+    if (request.getCreatedAt() == null) {
+        request.setCreatedAt(LocalDateTime.now());
+    }
+
+   
+    return repository.save(request);
+    }
+
+
     public boolean approveRequest(Long id)
     {
         Optional<CertificateRequest>optionalRequest=repository.findById(id);
@@ -41,18 +63,16 @@ public class CertificateService {
         }
     }
     public CertificateRequest updateRequestStatus(Long id, String status) {
-    Optional<CertificateRequest> optional = repository.findById(id);
-    if (optional.isPresent()) {
-        CertificateRequest request = optional.get();
-        request.setStatus(status);
-        return repository.save(request);
-    }
+        Optional<CertificateRequest> optional = repository.findById(id);
+        if (optional.isPresent()) {
+            CertificateRequest request = optional.get();
+            request.setStatus(status);
+            request.setUpdatedAt(LocalDateTime.now());
+            return repository.save(request);
+        }
     return null;
-}
-public CertificateRequest getRequestById(Long id) {
-    return repository.findById(id).orElseThrow(() -> new RuntimeException("Request not found"));
-}
-
-
-
+    }
+    public CertificateRequest getRequestById(Long id) {
+        return repository.findById(id).orElseThrow(() -> new RuntimeException("Request not found"));
+    }
 }

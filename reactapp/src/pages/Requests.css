@@ -1,0 +1,136 @@
+
+.req-container {
+  font-family: Arial, sans-serif;
+  color: #333;
+  font-size: 14px;
+}
+
+
+.req-title {
+  font-weight: 600;
+  font-size: 1.2rem;
+  margin-bottom: 8px;
+}
+
+
+.req-search-container {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 12px;
+  
+}
+
+.req-search-input {
+  flex: 3;
+  padding: 8px 8px;
+  font-size: 13px;
+  border: 1px solid #ccc;
+  border-radius: 0;
+  outline: none;
+}
+
+.req-status-select {
+  flex: 1; 
+  padding: 8px 8px;
+  font-size: 13px;
+  border: 1px solid #ccc;
+  border-radius: 0;
+  outline: none;
+}
+.req-search-input:focus,
+.req-status-select:focus {
+  border-color: #007bff;
+}
+
+.req-search-input:focus,
+.req-status-select:focus {
+  border-color: #007bff;
+}
+
+
+.req-table {
+  width: 100%;
+  border-collapse: collapse;
+  background-color: #fff;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+  font-size: 13px;
+}
+
+
+.req-table th,
+.req-table td {
+  padding: 14px 12px; 
+  border-bottom: 1px solid #eee;
+  text-align: left;
+  vertical-align: middle; 
+}
+
+
+.req-table tr {
+  height: 48px;
+}
+
+.req-table th {
+  background-color: #f3f4f6;
+  font-weight: 600;
+}
+
+.req-table tr:hover {
+  background-color: #f9fafb;
+}
+
+
+.req-status-approved {
+  color: #06682a; 
+  font-weight: 600;
+}
+
+.req-status-rejected {
+  color: #dc2626; 
+  font-weight: 600;
+}
+
+.req-status-pending {
+  color: #d97706; 
+  font-weight: 600;
+}
+
+
+.req-actions {
+  display: flex;
+  gap: 6px;
+}
+
+.req-approve-btn,
+.req-reject-btn {
+  padding: 6px 12px;
+  border: none;
+  border-radius: 0;
+  cursor: pointer;
+  font-size: 13px;
+}
+
+.req-approve-btn {
+  background-color: #06682a; 
+  color: #fff;
+}
+
+.req-approve-btn:hover {
+  background-color: #16a34a;
+}
+
+.req-reject-btn {
+  background-color: #aa0f0f; 
+  color: #fff;
+}
+
+.req-reject-btn:hover {
+  background-color: #dc2626;
+}
+
+
+.req-no-data {
+  text-align: center;
+  padding: 16px 0; 
+  color: #777;
+}

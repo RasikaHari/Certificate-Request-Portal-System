@@ -3,7 +3,10 @@ package com.examly.springapp.controller;
 import java.util.List;
 import java.util.Optional;
 
+import javax.servlet.http.HttpSession;
+
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -19,6 +22,7 @@ import com.examly.springapp.model.UserRole;
 import com.examly.springapp.service.UserService;
 
 @RestController
+
 @RequestMapping("/api/user")
 public class UserController {
     private final UserService userService;
@@ -46,28 +50,31 @@ public class UserController {
             return ResponseEntity.internalServerError().body("Something went wrong"+e.getMessage());
         }
     }
-     @PostMapping("/login")
-    public ResponseEntity<?> loginUser(@RequestBody LoginRequest loginRequest) {
-    boolean success = userService.login(loginRequest.getEmail(), loginRequest.getPassword());
 
-    if (success) {
-        User user = userService.getUSersByemail(loginRequest.getEmail()).get(); 
+    @PostMapping("/login")
+    public ResponseEntity<?> loginUser(@RequestBody LoginRequest loginRequest, HttpSession session) {
+        boolean success = userService.login(loginRequest.getEmail(), loginRequest.getPassword());
+        if (success) {
+            User user = userService.getUSersByemail(loginRequest.getEmail()).get();
+            
+            session.setAttribute("userId", user.getId());
 
-        LoginResponse response = new LoginResponse(
-            user.getId(),
-            user.getName(),
-            user.getEmail(),
-            user.getRole(),
-            user.getPhoneNumber(),
-            "Login successful."
-        );
+            LoginResponse response = new LoginResponse(
+                user.getId(),
+                user.getName(),
+                user.getEmail(),
+                user.getRole(),
+                user.getPhoneNumber(),
+                "Login successful."
+            );
 
-        return ResponseEntity.ok(response);
-    } else {
-        return ResponseEntity.status(401).body("Invalid email or password.");
+            return ResponseEntity.ok(response);
+        } else {
+            return ResponseEntity.status(401).body("Invalid email or password.");
+        }
     }
-}
-@GetMapping("/{id}")
+
+    @GetMapping("/{id}")
     public ResponseEntity<?> getUserById(@PathVariable Long id) {
         Optional<User> userOptional = userService.getUserById(id);
         return userOptional
@@ -81,19 +88,30 @@ public class UserController {
         return ResponseEntity.ok(users);
     }
     @PutMapping("/{id}")
-public ResponseEntity<?> updateUser(@PathVariable Long id, @RequestBody User updatedUser) {
+    public ResponseEntity<?> updateUser(@PathVariable Long id, @RequestBody User updatedUser) {
+        Optional<User> optionalUser = userService.getUserById(id);
+
+        if (optionalUser.isPresent()) {
+            User user = optionalUser.get();
+
+            user.setName(updatedUser.getName());
+            user.setEmail(updatedUser.getEmail());
+            user.setPhoneNumber(updatedUser.getPhoneNumber());
+            user.setRole(updatedUser.getRole());
+
+            User savedUser = userService.saveUpdatedUser(user); 
+            return ResponseEntity.ok(savedUser);  
+        } else {
+            return ResponseEntity.status(404).body("User not found.");
+        }
+    }
+    @DeleteMapping("/{id}")
+    public ResponseEntity<?> deleteUser(@PathVariable Long id) {
     Optional<User> optionalUser = userService.getUserById(id);
 
     if (optionalUser.isPresent()) {
-        User user = optionalUser.get();
-
-        user.setName(updatedUser.getName());
-        user.setEmail(updatedUser.getEmail());
-        user.setPhoneNumber(updatedUser.getPhoneNumber());
-        user.setRole(updatedUser.getRole());
-
-        User savedUser = userService.saveUpdatedUser(user); 
-        return ResponseEntity.ok(savedUser);  
+        userService.deleteUserById(id); 
+        return ResponseEntity.ok("User deleted successfully.");
     } else {
         return ResponseEntity.status(404).body("User not found.");
     }

@@ -1,0 +1,215 @@
+.dashboard-container {
+    display: flex;
+    min-height: 100vh;
+    background: #f5f6f8;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+.sidebar a,
+.sidebar a:visited,
+.sidebar a:active {
+  color: white;  
+  text-decoration: none; 
+}
+
+.sidebar {
+    width: 240px;
+    background: #111;
+    color: #fff;
+    display: flex;
+    flex-direction: column;
+    padding: 24px 0;
+    box-shadow: 2px 0 6px rgba(0,0,0,0.2);
+}
+
+.sidebar-header {
+    font-weight: 600;
+    font-size: 20px;
+    text-align: center;
+    margin-bottom: 30px;
+    letter-spacing: 1px;
+}
+
+.accent-gold {
+    color: #fbbf24;
+}
+
+.menu {
+    display: flex;
+    flex-direction: column;
+}
+.menu-item {
+    padding: 12px 24px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    transition: background 0.2s;
+    font-weight: 500;
+    font-size: 14px;
+     text-decoration: none;
+}
+
+.menu-item:hover,
+.menu-item.active {
+    background: #1a1a1a;
+}
+
+.icon {
+    margin-right: 10px;
+    font-size: 16px;
+}
+
+.main-content {
+    flex: 1;
+    padding: 24px 36px;
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 24px;
+}
+
+.welcome-text {
+    font-size: 18px;
+    font-weight: 500;
+    color: #111;
+}
+
+.date-text {
+    color: #666;
+    font-size: 13px;
+    margin-top: 2px;
+}
+
+.request-button {
+    background: #2563eb;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    padding: 10px 20px;
+    font-weight: 500;
+    font-size: 14px;
+    cursor: pointer;
+    transition: background 0.2s;
+    text-decoration: none;
+}
+
+.request-button:hover {
+    background: #1e4bb8;
+}
+
+.stats-container {
+    display: flex;
+    gap: 16px;
+    margin-bottom: 24px;
+}
+
+.stat-card {
+    flex: 1;
+    background: #fff;
+    border: 1px solid #e0e0e0;
+    border-top: 4px solid; 
+    padding: 16px 0;
+    text-align: center;
+}
+
+.stat-value {
+    font-size: 20px;
+    font-weight: 600;
+    color: #111;
+}
+
+.stat-label {
+    color: #555;
+    font-weight: 500;
+    font-size: 14px;
+}
+
+.recent-activity .activity-header {
+    font-size: 16px;
+    font-weight: 600;
+    margin-bottom: 12px;
+    color: #111;
+}
+
+.activity-list {
+    background: #fff;
+    border: 1px solid #e0e0e0;
+    padding: 16px;
+    min-height: 100px;
+}
+
+.no-activity {
+    color: #888;
+    font-style: italic;
+    font-size: 13px;
+}
+
+.activity-list ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.activity-list li {
+    margin-bottom: 10px;
+    color: #444;
+    display: flex;
+    justify-content: space-between;
+    font-size: 14px;
+}
+
+.activity-type {
+    color: #2563eb;
+    font-weight: 500;
+}
+
+.activity-date {
+    color: #aaa;
+    font-size: 12px;
+    margin-left: 6px;
+}
+.color-empty {
+  fill: #ebedf0;
+}
+.color-scale-1 {
+  fill: #c6e48b;
+}
+.color-scale-2 {
+  fill: #7bc96f;
+}
+.color-scale-3 {
+  fill: #196127;
+}
+.react-calendar-heatmap .color-empty,
+.react-calendar-heatmap .color-scale-1,
+.react-calendar-heatmap .color-scale-2,
+.react-calendar-heatmap .color-scale-3 {
+    width: 12px;
+    height: 12px;
+    border-radius: 2px;
+    display: inline-block;
+}
+
+.react-calendar-heatmap rect {
+    rx: 2; 
+}
+.sidebar {
+    width: 240px;
+    background: #111;
+    color: #fff;
+    display: flex;
+    flex-direction: column;
+    padding: 24px 0;
+    box-shadow: 2px 0 6px rgba(0,0,0,0.2);
+}
+
+
+.top-menu {
+    flex: 1;
+}
+
+.bottom-menu {
+    margin-top: auto;
+}

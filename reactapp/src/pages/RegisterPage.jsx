@@ -34,9 +34,9 @@ export const RegisterPage = () => {
 
   return (
     <div className="register-wrapper">
-      {/* Left Side - Form */}
+     <div className="register-card">
       <div className="register-left">
-        <div className="register-logo">Certara</div>
+        <div className="register-logo">OCRPS</div>
         <p className="register-welcome">Create your account</p>
         <h2>Register</h2>
 
@@ -44,74 +44,33 @@ export const RegisterPage = () => {
 
         <form onSubmit={handleSubmit} className="register-form">
           <label>Email :</label>
-          <input
-            type="email"
-            name="email"
-            placeholder="example@gmail.com"
-            value={formData.email}
-            onChange={handleChange}
-            required 
-          />
+          <input type="email" name="email" placeholder="example@gmail.com" value={formData.email} onChange={handleChange}required />
 
           <label>Name :</label>
-          <input
-            type="text"
-            name="name"
-            placeholder="Enter your name"
-            value={formData.name}
-            onChange={handleChange}
-            required 
-          />
+          <input type="text" name="name" placeholder="Enter your name" value={formData.name} onChange={handleChange} required />
 
           <label>Password :</label>
-          <input
-            type="password"
-            name="password"
-            placeholder="Password"
-            value={formData.password}
-            onChange={handleChange}
-            required 
-          />
+          <input type="password" name="password" placeholder="Password" value={formData.password} onChange={handleChange}required />
 
           <label>Phone Number :</label>
-          <input
-            type="text"
-            name="phoneNumber"
-            value={formData.phoneNumber}
-            pattern="[0-9]{10}"
-            placeholder="Enter a 10-digit phone number"
-            onChange={handleChange}
-            required 
-          />
+          <input type="text" name="phoneNumber" value={formData.phoneNumber} pattern="[0-9]{10}"placeholder="Enter a 10-digit phone number" onChange={handleChange}required />
             <label>Role :</label>
-            <select
-            name="role"
-            value={formData.role}
-            onChange={handleChange}
-            required
-          >
+            <select name="role" value={formData.role} onChange={handleChange} required>
             <option value="STUDENT">STUDENT</option>
             <option value="STAFF">STAFF</option>
             <option value="ADMIN">ADMIN</option>
           </select>
-          <button type="submit" className="register-btn" >
-            Register 
-          </button>
-
+          <button type="submit" className="register-btn" >Register </button>
           <p className="register-text">
-            Already have an account? <Link to="/">Login</Link>
+            Already have an account? <Link to="/login">Login</Link>
           </p>
         </form>
       </div>
-
       
       <div className="register-right">
-        <img
-          src="https://sites.glos.ac.uk/library/wp-content/uploads/sites/159/sites/265/2021/07/main-img-949x1024.png"
-          alt="Register Illustration"
-          className="register-img"
-        />
+        <img src="https://cdn3d.iconscout.com/3d/premium/thumb/cute-student-with-pencil-9639941-7866555.png" alt="Register Illustration" className="register-img"/>
       </div>
+    </div>
     </div>
   );
 };

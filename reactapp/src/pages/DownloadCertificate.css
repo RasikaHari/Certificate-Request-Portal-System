@@ -1,0 +1,125 @@
+.certificates-container {
+  max-width: 1100px;
+  margin: 30px auto;
+  padding: 16px;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  font-size: 0.9rem;
+}
+
+.certificates-box {
+  background-color: #f9fafb;
+  padding: 24px;
+  border-radius: 8px;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
+}
+
+.certificates-heading {
+  font-size: 1.3rem;
+  font-weight: 600;
+  text-align: center;
+  margin-bottom: 20px;
+  color: #1f2937;
+}
+
+.certificates-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 12px;
+  background-color: #ffffff;
+  border-radius: 6px;
+  overflow: hidden;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+}
+
+.certificates-table th,
+.certificates-table td {
+  padding: 12px 16px; 
+  text-align: left;
+  font-size: 0.9rem; 
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.certificates-table th {
+  background-color: #f3f4f6;
+  font-weight: 600;
+  color: #374151;
+  font-size: 0.95rem; 
+}
+
+.certificates-table tr:hover {
+  background-color: #f9fafb;
+}
+
+.download-btn {
+  display: inline-block;
+  padding: 5px 12px; 
+  background-color: #2563eb;
+  color: white;
+  font-size: 0.85rem;
+  font-weight: 500;
+  border-radius: 4px;
+  text-decoration: none;
+  transition: background 0.2s, transform 0.2s;
+}
+
+.download-btn:hover {
+  background-color: #1e40af;
+  transform: translateY(-1px);
+}
+
+
+.loading-msg,
+.no-certificates-msg,
+.error-msg {
+  text-align: center;
+  font-size: 0.95rem;
+  padding: 12px;
+  margin-top: 12px;
+  border-radius: 4px;
+}
+
+.loading-msg {
+  color: #2563eb;
+  background-color: #eff6ff;
+  border: 1px solid #93c5fd;
+}
+
+.no-certificates-msg {
+  color: #374151;
+  background-color: #f3f4f6;
+  border: 1px solid #d1d5db;
+}
+
+.error-msg {
+  color: #b91c1c;
+  background-color: #fee2e2;
+  border: 1px solid #fca5a5;
+}
+.search-input {
+  width: 98%;
+  padding: 8px 10px;
+  margin-bottom: 15px;
+  border: 1px solid #d1d5db;
+  border-radius: 0px;
+  font-size: 0.9rem;
+}
+.search-input:focus {
+  outline: none;
+  border-color: #2563eb;
+  box-shadow: 0 0 4px rgba(37, 99, 235, 0.3);
+}
+.search-input-wrapper {
+  position: relative;
+  width: 99%;
+  margin-bottom: 15px;
+}
+.search-icon {
+  position: absolute;
+  right: 10px;
+  top: 40%;
+  transform: translateY(-50%);
+  width: 18px;
+  height: 18px;
+  pointer-events: none; 
+  opacity: 0.7;
+}

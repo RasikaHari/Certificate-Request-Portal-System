@@ -1,0 +1,79 @@
+
+.admin-dashboard-container {
+    display: flex;
+    min-height: 100vh;
+    background: #f5f6f8;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+.accent-gold {
+    color: #fbbf24;
+}
+
+.admin-sidebar {
+    width: 240px;
+    background: #111;
+    color: #fff;
+    display: flex;
+    flex-direction: column;
+    padding: 24px 0;
+    box-shadow: 2px 0 6px rgba(0,0,0,0.2);
+}
+
+.admin-sidebar-header {
+    font-weight: 600;
+    font-size: 20px;
+    text-align: center;
+    margin-bottom: 30px;
+    letter-spacing: 1px;
+}
+
+
+.admin-sidebar-menu {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    flex: 1;
+    margin-bottom: 20px;
+}
+
+
+.admin-menu-item {
+    padding: 12px 24px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    transition: background 0.2s;
+    font-weight: 500;
+    font-size: 14px;
+    text-decoration: none;
+    color: #fff;
+}
+
+.admin-menu-item:hover {
+    background: #1a1a1a;
+    color: #fff; 
+}
+
+.admin-menu-item-active {
+    background: #1a1a1a;
+    color: #fff; 
+}
+
+.admin-logout-button {
+    padding: 12px 24px;
+    margin-top: auto;
+    background:none;
+    border: none;
+    border-radius: 4px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background 0.2s;
+    color: #fff;
+}
+
+
+.admin-main-content {
+    flex: 1;
+    padding: 24px 36px;
+    overflow-y: auto;
+}

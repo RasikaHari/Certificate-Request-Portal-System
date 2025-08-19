@@ -1,8 +1,24 @@
+
 .login-wrapper {
   display: flex;
+  justify-content: center;
+  align-items: center;
   height: 100vh;
+  background: #f3f4f6;
   font-family: "Poppins", sans-serif;
 }
+
+
+.login-card {
+  display: flex;
+  background: #fff;
+  border-radius: 0px;
+  overflow: hidden;
+  box-shadow: 0 6px 25px rgba(0, 0, 0, 0.1);
+  width: 950px;
+  max-width: 95%;
+}
+
 
 .login-left {
   flex: 1;
@@ -13,15 +29,16 @@
 }
 
 .logo {
-  font-size: 20px;
-  font-weight: 600;
+  font-size: 22px;
+  font-weight: 700;
   color: #d17b93;
+  margin-bottom: 10px;
 }
 
 .welcome-text {
-  margin: 10px 0;
   font-size: 14px;
-  color: #777;
+  color: #666;
+  margin-bottom: 5px;
 }
 
 h2 {
@@ -30,25 +47,36 @@ h2 {
 }
 
 .error-msg {
-  color: red;
-  margin-bottom: 10px;
+  color: #dc2626;
+  font-size: 14px;
+  margin-bottom: 15px;
 }
+
 
 .login-form label {
   font-size: 14px;
   font-weight: 500;
   margin-top: 15px;
   display: block;
+  color: #374151;
 }
 
 .login-form input {
   width: 100%;
-  padding: 10px;
-  margin-top: 5px;
-  border-radius: 5px;
-  border: none;
-  background: #d9eaf5;
+  padding: 12px;
+  margin-top: 6px;
+  border-radius: 0px;
+  border: 1px solid #ddd;
+  background: #f9fafb;
+  font-size: 14px;
+  transition: border 0.2s ease;
 }
+
+.login-form input:focus {
+  outline: none;
+  border-color: #d17b93;
+}
+
 
 .password-row {
   display: flex;
@@ -58,52 +86,50 @@ h2 {
 
 .forgot-link {
   font-size: 12px;
-  color: #999;
+  color: #6b7280;
   text-decoration: none;
 }
+
+.forgot-link:hover {
+  color: #d17b93;
+}
+
 
 .login-btn {
   background: #d17b93;
   color: white;
   border: none;
-  padding: 12px;
+  padding: 14px;
   border-radius: 25px;
   width: 100%;
-  margin-top: 20px;
+  margin-top: 25px;
   cursor: pointer;
   font-size: 14px;
+  font-weight: 600;
+  letter-spacing: 1px;
+  transition: background 0.3s;
 }
 
-.or-text {
-  text-align: center;
-  font-size: 12px;
-  margin: 20px 0;
+.login-btn:hover {
+  background: #b75c78;
 }
 
-.social-login {
-  display: flex;
-  justify-content: center;
-  gap: 15px;
-}
-
-.social-login button {
-  border: 1px solid #ccc;
-  background: white;
-  border-radius: 50%;
-  width: 40px;
-  height: 40px;
-  cursor: pointer;
-}
 
 .signup-text {
   text-align: center;
-  font-size: 12px;
-  margin-top: 20px;
+  font-size: 13px;
+  margin-top: 25px;
+  color: #555;
 }
 
 .signup-link {
   color: #d17b93;
+  font-weight: 500;
   text-decoration: none;
+}
+
+.signup-link:hover {
+  text-decoration: underline;
 }
 
 .login-right {
@@ -116,7 +142,11 @@ h2 {
 
 .login-img {
   width: 90%;
-  max-width: 500px;
-  transform: scale(1.2); 
+  max-width: 400px;
+  transform: scale(1.05);
   transition: transform 0.3s ease-in-out;
+}
+
+.login-img:hover {
+  transform: scale(1.1);
 }
