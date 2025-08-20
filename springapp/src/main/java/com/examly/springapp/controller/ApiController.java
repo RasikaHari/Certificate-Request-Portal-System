@@ -25,6 +25,7 @@ import com.examly.springapp.model.CertificateRequest;
 import com.examly.springapp.model.User;
 import com.examly.springapp.model.UserRole;
 import com.examly.springapp.service.CertificateService;
+import com.examly.springapp.service.EmailService;
 import com.examly.springapp.service.UserService;
 import com.examly.springapp.util.PdfGeneratorUtil;
 
@@ -34,10 +35,12 @@ public class ApiController {
 
     private final CertificateService service;
     private final UserService userService;
+    private final EmailService emailService; 
 
-    public ApiController(CertificateService service, UserService userService) {
+    public ApiController(CertificateService service, UserService userService,EmailService emailService) {
         this.service = service;
         this.userService = userService;
+        this.emailService=emailService;
     }
 
     
@@ -83,15 +86,42 @@ public class ApiController {
     @PutMapping("/approveRequest/{id}")
     public ResponseEntity<?> approveRequest(@PathVariable Long id) {
         CertificateRequest request = service.updateRequestStatus(id, "APPROVED");
-        return request != null ? ResponseEntity.ok(request)
-                               : ResponseEntity.status(404).body("Request not found");
+        // return request != null ? ResponseEntity.ok(request)
+        //                        : ResponseEntity.status(404).body("Request not found");
+        if (request != null) {
+            String subject = "Your Certificate Request is Approved!";
+            String body = "Hello " + request.getName() + ",\n\n" +
+                          "Good news! Your certificate request for the course \"" +
+                          request.getCourse() + "\" has been approved.\n\n" +
+                          "You can now download your certificate from the portal.\n\n" +
+                          "Best regards,\nOCRPS Team";
+
+            emailService.sendEmail(request.getUser().getEmail(), subject, body);
+
+            return ResponseEntity.ok(request);
+        }
+        return ResponseEntity.status(404).body("Request not found");
     }
 
     @PutMapping("/rejectRequest/{id}")
     public ResponseEntity<?> rejectRequest(@PathVariable Long id) {
         CertificateRequest request = service.updateRequestStatus(id, "REJECTED");
-        return request != null ? ResponseEntity.ok(request)
-                               : ResponseEntity.status(404).body("Request not found");
+        // return request != null ? ResponseEntity.ok(request)
+        //                        : ResponseEntity.status(404).body("Request not found");
+
+         if (request != null) {
+            String subject = "Your Certificate Request is Rejected";
+            String body = "Hello " + request.getName() + ",\n\n" +
+                          "We regret to inform you that your certificate request for the course \"" +
+                          request.getCourse() + "\" has been rejected.\n\n" +
+                          "Please contact the administrator for more details.\n\n" +
+                          "Best regards,\nOCRPS Team";
+
+            emailService.sendEmail(request.getUser().getEmail(), subject, body);
+
+            return ResponseEntity.ok(request);
+        }
+        return ResponseEntity.status(404).body("Request not found");
     }
 
     @GetMapping("/getDownloadedCertificates/{userId}")

@@ -15,4 +15,5 @@ public class LoginResponse {
     private UserRole role;
     private String phoneNumber;
     private String message;
+    
 }

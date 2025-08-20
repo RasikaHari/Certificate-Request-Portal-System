@@ -19,6 +19,7 @@ import com.examly.springapp.dto.LoginRequest;
 import com.examly.springapp.dto.LoginResponse;
 import com.examly.springapp.model.User;
 import com.examly.springapp.model.UserRole;
+import com.examly.springapp.service.EmailService;
 import com.examly.springapp.service.UserService;
 
 @RestController
@@ -26,9 +27,11 @@ import com.examly.springapp.service.UserService;
 @RequestMapping("/api/user")
 public class UserController {
     private final UserService userService;
-    public UserController(UserService userService)
+    private final EmailService emailService;
+    public UserController(UserService userService,EmailService emailService)
     {
         this.userService=userService;
+        this.emailService=emailService;
     }
     @PostMapping("/register")
     public ResponseEntity<String>registerUser(@RequestBody User user)
@@ -38,6 +41,11 @@ public class UserController {
             boolean success=userService.registerUser(user);
             if(success)
             {
+                emailService.sendEmail(
+                user.getEmail(),
+                "Welcome to OCRPS",
+                "Hello " + user.getName() + ",\n\nThank you for registering with OCRPS!"
+            );
                 return ResponseEntity.ok("User Registered successfully.");
             }
             else
