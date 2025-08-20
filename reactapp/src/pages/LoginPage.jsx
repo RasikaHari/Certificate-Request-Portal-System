@@ -2,9 +2,11 @@ import { useState } from "react";
 import { useNavigate, Link } from "react-router-dom";
 import api from "../services/api";
 import "./LoginPage.css";
+import { useAuth } from "../context/AuthContext";
 
 const LoginPage = () => {
   const navigate = useNavigate();
+  const { login } = useAuth();
   const [formData, setFormData] = useState({ email: "", password: "" });
   const [error, setError] = useState("");
 
@@ -19,7 +21,8 @@ const LoginPage = () => {
       const response = await api.post("/api/user/login", formData, {
         withCredentials: true,
       });
-      localStorage.setItem("authUser", JSON.stringify(response.data));
+
+      login(response.data);
       const { role } = response.data;
 
       if (role === "ADMIN") {

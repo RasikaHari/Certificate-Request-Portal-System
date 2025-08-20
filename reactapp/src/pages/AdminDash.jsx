@@ -140,7 +140,7 @@ const AdminDash = () => {
 
        
         <section className="admin-dash-pending">
-          <h3>Recent Pending Approvals Request</h3>
+          <h3>Oldest Pending Approvals Request</h3>
           <ul>
             {pendingRequests.map((r) => (
               <li key={r.id}>
