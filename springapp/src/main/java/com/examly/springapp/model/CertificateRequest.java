@@ -28,10 +28,18 @@ public class CertificateRequest {
      private LocalDateTime createdAt;
      private LocalDateTime updatedAt;
 
-    @PrePersist
-    public void prePersist() {
-        createdAt = LocalDateTime.now(); 
-    }
+    
+public void prePersist() {
+    LocalDateTime now = LocalDateTime.now();
+    createdAt = now;
+    updatedAt = now;   // ensure updatedAt is not null on insert
+}
+
+@PreUpdate
+public void preUpdate() {
+    updatedAt = LocalDateTime.now();
+}
+
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "user_id", nullable = false)

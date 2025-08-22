@@ -113,6 +113,7 @@ const RequestCertificate = () => {
               value={form.completionDate}
               onChange={handleChange}
               required
+               max={new Date().toISOString().split("T")[0]}
             />
           </label>
           <br/>

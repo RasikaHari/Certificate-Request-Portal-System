@@ -150,3 +150,102 @@ h2 {
 .login-img:hover {
   transform: scale(1.1);
 }
+/* Overlay */
+.forgot-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(32, 33, 36, 0.6); /* subtle dark overlay */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 999;
+  font-family: 'Roboto', sans-serif;
+}
+
+/* Card */
+.forgot-card {
+  background: #fff;
+  padding: 40px 32px;
+  border-radius: 0px;
+  width: 600px;
+  max-width: 100%;
+  box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.15);
+  text-align: left;
+  animation: fadeIn 0.25s ease-in;
+}
+
+.forgot-card h3 {
+  font-size: 24px;
+  font-weight: 500;
+  color: #202124;
+  margin-bottom: 16px;
+}
+
+.forgot-card p {
+  font-size: 14px;
+  color: #5f6368;
+  margin-bottom: 16px;
+}
+
+/* Inputs */
+.forgot-card input {
+  width: 100%;
+  padding: 14px 12px;
+  margin: 10px 0 20px;
+  border: 1px solid #dadce0;
+  border-radius: 4px;
+  font-size: 16px;
+  outline: none;
+  transition: border-color 0.2s;
+}
+
+.forgot-card input:focus {
+  border-color: #1a73e8;
+  box-shadow: 0 1px 2px rgba(26, 115, 232, 0.3);
+}
+
+/* Primary Button (Google Blue) */
+.forgot-card button {
+  background: #d17b93;
+  border: none;
+  color: white;
+  font-size: 14px;
+  font-weight: 500;
+  padding: 12px 24px;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background 0.25s ease-in-out;
+}
+
+.forgot-card button:hover {
+  background: #945364;
+}
+
+/* Secondary button (Close) */
+.forgot-card button:last-child {
+  background: transparent;
+  color: #1a73e8;
+  margin-left: 10px;
+  font-weight: 500;
+}
+
+.forgot-card button:last-child:hover {
+  background: rgba(26, 115, 232, 0.08);
+}
+
+/* Center footer actions like Google */
+.forgot-card .actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 8px;
+  margin-top: 10px;
+}
+
+/* Animation */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(-20px); }
+  to { opacity: 1; transform: translateY(0); }
+}

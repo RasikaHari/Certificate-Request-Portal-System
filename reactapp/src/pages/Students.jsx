@@ -6,7 +6,7 @@ const Students = () => {
   const [students, setStudents] = useState([]);
   const [search, setSearch] = useState("");
   const [editingStudent, setEditingStudent] = useState(null);
-  const [form, setForm] = useState({ name: "", email: "", password: "", phoneNumber: "" });
+  const [form, setForm] = useState({ name: "", email: "", phoneNumber: "" });
 
   const fetchStudents = async () => {
     try {
@@ -28,22 +28,34 @@ const Students = () => {
   const handleAddOrEdit = async () => {
     try {
       if (editingStudent) {
-        await api.put(`/api/user/${editingStudent.id}`, { ...form, role: "STUDENT" });
+        // Editing student - keep role fixed
+        await api.put(`/api/user/${editingStudent.id}`, {
+          ...form,
+          role: "STUDENT",
+        });
         setEditingStudent(null);
       } else {
-        await api.post("/api/user/register", { ...form, role: "STUDENT" });
+        // Adding new student - admin creates with default password
+        await api.post("/api/user/admin/create", {
+          ...form,
+          role: "STUDENT",
+        });
       }
-      setForm({ name: "", email: "", password: "", phoneNumber: "" });
+      setForm({ name: "", email: "", phoneNumber: "" });
       fetchStudents();
     } catch (err) {
       console.error(err);
-      alert("Error: " + err.response?.data || err.message);
+      alert("Error: " + (err.response?.data || err.message));
     }
   };
 
   const handleEdit = (student) => {
     setEditingStudent(student);
-    setForm({ name: student.name, email: student.email, password: "", phoneNumber: student.phoneNumber });
+    setForm({
+      name: student.name,
+      email: student.email,
+      phoneNumber: student.phoneNumber,
+    });
   };
 
   const handleDelete = async (id) => {
@@ -76,10 +88,10 @@ const Students = () => {
           className="stu-search-input"
         />
         <img
-            src="https://www.svgrepo.com/show/448837/search.svg"
-            alt="search"
-            className="search-i"
-          />
+          src="https://www.svgrepo.com/show/448837/search.svg"
+          alt="search"
+          className="search-i"
+        />
       </div>
 
       <div className="stu-form-container">
@@ -92,22 +104,13 @@ const Students = () => {
             placeholder="Name"
             value={form.name}
             onChange={handleInputChange}
-            />
-            <label>Email : </label>
+          />
+          <label>Email : </label>
           <input
             type="email"
             name="email"
             placeholder="example@gmail.com"
             value={form.email}
-            onChange={handleInputChange}
-            />
-           
-            <label>Password : </label>
-          <input
-            type="password"
-            name="password"
-            placeholder="*******"
-            value={form.password}
             onChange={handleInputChange}
           />
           <label>Phone Number :</label>
@@ -127,7 +130,7 @@ const Students = () => {
             <button
               onClick={() => {
                 setEditingStudent(null);
-                setForm({ name: "", email: "", password: "", phoneNumber: "" });
+                setForm({ name: "", email: "", phoneNumber: "" });
               }}
               className="stu-btn stu-secondary-btn"
             >
@@ -154,8 +157,18 @@ const Students = () => {
                 <td>{s.email}</td>
                 <td>{s.phoneNumber}</td>
                 <td className="stu-actions">
-                  <button onClick={() => handleEdit(s)} className="stu-btn stu-edit-btn">Edit</button>
-                  <button onClick={() => handleDelete(s.id)} className="stu-btn stu-delete-btn">Delete</button>
+                  <button
+                    onClick={() => handleEdit(s)}
+                    className="stu-btn stu-edit-btn"
+                  >
+                    Edit
+                  </button>
+                  <button
+                    onClick={() => handleDelete(s.id)}
+                    className="stu-btn stu-delete-btn"
+                  >
+                    Delete
+                  </button>
                 </td>
               </tr>
             ))

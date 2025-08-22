@@ -1,7 +1,7 @@
 .request-wrapper {
   position: relative;
-  width: 900px;
-  margin: 60px 90px;
+  width: 1000px;
+  margin: 100px 90px;
 }
 
 
@@ -22,7 +22,7 @@
 .corner-image {
   position: absolute;
   top: -95px;
-  right: -160px;
+  right: -40px;
   width: 175px;
   height: auto;
   z-index: 2;

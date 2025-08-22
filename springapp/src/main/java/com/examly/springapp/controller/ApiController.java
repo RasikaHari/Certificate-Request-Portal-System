@@ -146,7 +146,7 @@ public class ApiController {
          User user = userService.getUserById(userId)
                            .orElseThrow(() -> new RuntimeException("User not found"));
         List<CertificateRequest> requests = service.getRequestsByUserId(userId);
-         if(user.getRole() == UserRole.ADMIN) {
+         if(user.getRole() == UserRole.ADMIN||user.getRole()==UserRole.STAFF) {
        
         requests = service.getAllRequests();
     } else {

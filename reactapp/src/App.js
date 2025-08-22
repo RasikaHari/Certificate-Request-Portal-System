@@ -6,6 +6,7 @@ import AdminDashboard from "./components/AdminDashboard";
 import Home from "./pages/Home";
 import PrivateRoute from "./pages/PrivateRoutes";
 import Logout from "./pages/Logout";
+import StaffDashboard from "./components/StaffDashboard";
 
 function App() {
   return (
@@ -24,6 +25,11 @@ function App() {
         
         <Route element={<PrivateRoute role="ADMIN" />}>
           <Route path="/admin/*" element={<AdminDashboard />} />
+        </Route>
+
+
+        <Route element={<PrivateRoute role="STAFF" />}>
+          <Route path="/staff/*" element={<StaffDashboard />} />
         </Route>
       </Routes>
     </BrowserRouter>

@@ -35,6 +35,8 @@ public class User {
     @Column(nullable=false,length=13)
     private String phoneNumber;
 
+    
+
     @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, orphanRemoval = true)
     @JsonManagedReference
     private List<CertificateRequest> certificateRequests;
