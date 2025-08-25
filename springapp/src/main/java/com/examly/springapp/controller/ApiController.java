@@ -30,8 +30,9 @@ import com.examly.springapp.service.UserService;
 import com.examly.springapp.util.PdfGeneratorUtil;
 
 @RestController
-// @CrossOrigin(origins = "http://localhost:3000", allowCredentials = "true") 
-@CrossOrigin(origins = "https://certificate-request-portal.onrender.com", allowCredentials = "true") 
+@CrossOrigin(origins = {"http://localhost:3000", "https://certificate-request-portal.onrender.com"}, allowCredentials = "true")
+
+
 public class ApiController {
 
     private final CertificateService service;
