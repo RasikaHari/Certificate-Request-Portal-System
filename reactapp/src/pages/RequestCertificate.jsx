@@ -16,7 +16,8 @@ const RequestCertificate = () => {
     const fetchUser = async () => {
       try {
        
-        const res = await fetch("http://localhost:8080/loggedInUser", {
+        // const res = await fetch("http://localhost:8080/loggedInUser", {
+        const res = await fetch("https://certificate-request-portal-system-e01i.onrender.com/loggedInUser", {
         method: "GET",
         credentials: "include", 
 });
@@ -45,7 +46,8 @@ const RequestCertificate = () => {
     setSuccess("");
     setError("");
     try {
-      const res = await fetch("http://localhost:8080/addRequest", {
+      // const res = await fetch("http://localhost:8080/addRequest", {
+      const res = await fetch("https://certificate-request-portal-system-e01i.onrender.com/addRequest", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({

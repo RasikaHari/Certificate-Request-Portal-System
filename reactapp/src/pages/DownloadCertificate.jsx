@@ -17,7 +17,12 @@ const DownloadCertificate = () => {
       return;
     }
 
-    fetch(`http://localhost:8080/getDownloadedCertificates/${userId}`)
+    // fetch(`http://localhost:8080/getDownloadedCertificates/${userId}`)
+    fetch(`https://certificate-request-portal-system-e01i.onrender.com/getDownloadedCertificates/${userId}`, {
+  credentials: 'include' // <-- include cookies
+})
+
+    
       .then((res) => {
         if (!res.ok) throw new Error("Failed to fetch certificates");
         return res.json();
@@ -81,7 +86,8 @@ const DownloadCertificate = () => {
                   <td>{cert.completionDate}</td>
                   <td>
                     <a
-                      href={`http://localhost:8080/generateCertificate/${cert.id}`}
+                      // href={`http://localhost:8080/generateCertificate/${cert.id}`}
+                      href={`https://certificate-request-portal-system-e01i.onrender.com/generateCertificate/${cert.id}`}
                       target="_blank"
                       rel="noopener noreferrer"
                       className="download-btn"

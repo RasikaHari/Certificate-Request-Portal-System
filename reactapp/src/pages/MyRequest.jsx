@@ -11,7 +11,8 @@ const MyRequests = () => {
   useEffect(() => {
     const fetchUser = async () => {
       try {
-        const res = await fetch("http://localhost:8080/loggedInUser", {
+        // const res = await fetch("http://localhost:8080/loggedInUser", {
+        const res = await fetch("https://certificate-request-portal-system-e01i.onrender.com/loggedInUser", {
           method: "GET",
           credentials: "include", 
         });
@@ -40,7 +41,8 @@ const MyRequests = () => {
 
     const fetchRequests = async () => {
       try {
-        const res = await fetch(`http://localhost:8080/getRequestsByUser/${userId}`, {
+        // const res = await fetch(`http://localhost:8080/getRequestsByUser/${userId}`, {
+        const res = await fetch(`https://certificate-request-portal-system-e01i.onrender.com/getRequestsByUser/${userId}`, {
           method: "GET",
           credentials: "include", 
         });

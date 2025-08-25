@@ -38,7 +38,8 @@ const StudentDashboard = () => {
     if (authUser && authUser.id) {
       setStudent({ name: authUser.name });
 
-      fetch(`http://localhost:8080/users/${authUser.id}/stats`)
+      // fetch(`http://localhost:8080/users/${authUser.id}/stats`)
+      fetch(`https://certificate-request-portal-system-e01i.onrender.com/users/${authUser.id}/stats`)
         .then((res) => res.json())
         .then((data) => {
           setStats({
