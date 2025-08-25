@@ -15,7 +15,7 @@ public class CorsConfig {
             public void addCorsMappings(CorsRegistry registry)
             {
                 registry.addMapping("/**")
-                        .allowedOrigins("http://localhost:3000")
+                        .allowedOrigins("http://localhost:3000","https://certificate-request-portal.onrender.com")
                         .allowedMethods("GET","POST","PUT","DELETE")
                         .allowCredentials(true)
                         .allowedHeaders("*");
