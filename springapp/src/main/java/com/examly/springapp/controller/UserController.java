@@ -35,9 +35,9 @@ public class UserController {
     
     @PostMapping("/register")
     public ResponseEntity<String> registerUser(@RequestBody RegisterRequest request) {
-         if (request.getRole() == UserRole.ADMIN) {
-        return ResponseEntity.badRequest().body("Admin Registeration.");
-    }
+        //  if (request.getRole() == UserRole.ADMIN) {
+        // return ResponseEntity.badRequest().body("Admin Registeration.");
+    // }
         try {
             if (!request.getPassword().equals(request.getConfirmPassword())) {
                 return ResponseEntity.badRequest().body("Passwords do not match");

@@ -306,9 +306,15 @@ export const RegisterPage = () => {
               required
             />
 
-            <label>Role:</label>
+            {/* <label>Role:</label>
 <input type="text" value="STUDENT" disabled />
-<input type="hidden" name="role" value="STUDENT" />
+<input type="hidden" name="role" value="STUDENT" /> */}
+<label>Role:</label>
+<select name="role" defaultValue="STUDENT">
+  <option value="STUDENT">STUDENT</option>
+  <option value="ADMIN">ADMIN</option>
+</select>
+
 
             <label
               style={{
